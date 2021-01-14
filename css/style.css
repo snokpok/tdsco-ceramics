@@ -1,0 +1,164 @@
+/* General styles */
+html, body {
+  background-color: white;
+  font-size: 16px;
+  margin: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+hr {
+  color: black !important;
+  width: 300px;
+}
+/* Header and navbar */
+header {
+  background-color: black;
+  width: 100%;
+  height: 5rem;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+header img#banner {
+  float: left;
+  height: 100%;
+  margin-left: 0.5%;
+  background-size: cover;
+}
+nav {
+  height: 100%;
+  float: right;
+  display: flex;
+  align-items: center;
+  width: 30rem;
+}
+nav ul {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+nav ul li {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li a {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 300ms;
+}
+nav ul li a:hover {
+  color: rgb(194, 194, 194);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  background-color: black;
+  padding: 1rem;
+  align-items: space-between;
+  position: absolute;
+  top: 2rem;
+  display: none;
+}
+
+.dropdown-content li {
+  border-bottom: 1px solid white;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown:hover .dropdown-content  {
+  display: block;
+}
+
+/* Section of body */
+section.body {
+  margin: 7rem;
+  height: 100%;
+  color: black;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Home page body */
+section #welcome-and-logo {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+section #welcome {
+  margin: 0 3rem;
+  border-bottom: 1px solid black;
+}
+section #welcome p {
+  margin: 1rem;
+  line-height: 3;
+}
+section #logo {
+  width: 15rem;
+}
+section #certifications {
+  margin: 4.4rem auto 0;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* About us page body */
+.about h1, .about + h4 {
+  text-align: center;
+}
+.about p {
+  line-height: 2;
+  text-align: justify;
+  display: flex;
+  align-items: center;
+}
+.about-imgs {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.about-imgs img {
+  margin: 0.5rem;
+  border: 1px solid black;
+}
+.about #about-1 {
+  display: flex;
+  flex-direction: row;
+}
+.about #about-2 {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.about + h4 {
+  font-style: oblique;
+  line-height: 2;
+}
+
+/* Footer */
+footer {
+  color: grey;
+  background-color: black;
+  text-align: center;
+  width: 100%;
+  height: 4rem;
+  position: absolute;
+  bottom: -1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
