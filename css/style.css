@@ -1,12 +1,20 @@
 /* General styles */
+* {
+  box-sizing: content-box;
+}
+
 html, body {
   background-color: white;
+  height: 100%;
   font-size: 16px;
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 hr {
-  color: black !important;
+  color: black;
   width: 300px;
 }
 /* Header and navbar */
@@ -18,6 +26,7 @@ header {
   position: fixed;
   top: 0;
   z-index: 999;
+  box-shadow: 2px 1px 2px 2px black;
 }
 header img#banner {
   float: left;
@@ -57,39 +66,91 @@ nav ul li a {
 nav ul li a:hover {
   color: rgb(194, 194, 194);
 }
-
 .dropdown {
   position: relative;
 }
-
 .dropdown-content {
   background-color: black;
   padding: 1rem;
-  align-items: space-between;
   position: absolute;
   top: 2rem;
-  display: none;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: 200ms;
+  text-align: center;
 }
-
 .dropdown-content li {
   border-bottom: 1px solid white;
-  margin-bottom: 0.5rem;
-}
-
-.dropdown:hover .dropdown-content  {
+  margin: 1rem auto;
   display: block;
 }
+.dropdown:hover .dropdown-content  {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
 
-/* Section of body */
+
+
+
+
+
+/* Background and section of body */
+.background {
+  background: linear-gradient(
+    90deg, 
+    rgb(1, 17, 27) 0%, 
+    rgba(9,85,121,1) 31%, 
+    rgba(9,85,121,1) 69%, 
+    rgb(0, 23, 36) 100%
+  );
+
+  min-height: 130%;
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+}
 section.body {
-  margin: 7rem;
-  height: 100%;
+  width: 60%;
+  padding: 7rem 3rem 8rem;
+
   color: black;
+  box-shadow: 0px 15px 40px #3f3e3e;
   background-color: white;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  position: absolute;
 }
+
+.background#index {
+  min-height: 100%;
+}
+.background#index section {
+  top: 10rem;
+}
+.background#about section {
+  padding-bottom: 2rem;
+}
+
+.background#contact {
+  min-height: 100%;
+}
+.background#contact section {
+  top: 10rem;
+  padding: 3rem;
+}
+
+
+
+
+
+
+
 
 /* Home page body */
 section #welcome-and-logo {
@@ -109,6 +170,7 @@ section #welcome p {
 section #logo {
   width: 15rem;
 }
+
 section #certifications {
   margin: 4.4rem auto 0;
   width: 70%;
@@ -116,28 +178,52 @@ section #certifications {
   justify-content: space-around;
 }
 
+
+
+
 /* About us page body */
 .about h1, .about + h4 {
   text-align: center;
+}
+.about h1 {
+  margin: 1rem;
 }
 .about p {
   line-height: 2;
   text-align: justify;
   display: flex;
   align-items: center;
+  margin: 0 1.5rem;
 }
 .about-imgs {
   padding: 1rem;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  height: 100%;
 }
 .about-imgs img {
-  margin: 0.5rem;
+  margin: 0.1rem 0.3rem;
   border: 1px solid black;
+  width: 8rem;
 }
 .about #about-1 {
   display: flex;
   flex-direction: row;
+}
+.about #about-1 .about-imgs {
+  flex-direction: column
+}
+#about-1 .about-imgs img {
+  width: 7rem;
+}
+
+.about .logo-container {
+  display: flex;
+  justify-content: center;
+}
+.about #logo.small {
+  width: 10rem;
+  margin: 2rem;
 }
 .about #about-2 {
   display: flex;
@@ -146,19 +232,52 @@ section #certifications {
 .about + h4 {
   font-style: oblique;
   line-height: 2;
+  width: 90%;
+  margin: 0 auto;
 }
+
+
+.background#index #logo{
+  -webkit-animation: spin 7s infinite;
+   animation: spin 7s infinite;
+}
+
+@-webkit-keyframes spin{
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(-360deg);
+  }
+}
+
+@keyframes spin{
+  from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  
+  to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+  }
+}
+
 
 /* Footer */
 footer {
   color: grey;
   background-color: black;
-  text-align: center;
+  box-shadow: 1px 4px 3px 4px rgb(2, 20, 44);
+
   width: 100%;
-  height: 4rem;
-  position: absolute;
-  bottom: -1;
+  padding: 0.8rem 0;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
+  z-index: 1;
 }
