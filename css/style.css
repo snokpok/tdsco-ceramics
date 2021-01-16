@@ -142,10 +142,14 @@ section.body {
 }
 
 .background#index {
-  min-height: 100%;
+  min-height: 130%;
 }
 .background#index section {
   top: 10rem;
+}
+
+.background#about {
+  min-height: 150%;
 }
 .background#about section {
   padding-bottom: 2rem;
