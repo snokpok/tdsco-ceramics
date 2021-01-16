@@ -17,6 +17,16 @@ hr {
   color: black;
   width: 300px;
 }
+
+
+
+
+
+
+
+
+
+
 /* Header and navbar */
 header {
   background-color: black;
@@ -96,6 +106,10 @@ nav ul li a:hover {
 
 
 
+
+
+
+
 /* Background and section of body */
 .background {
   background: linear-gradient(
@@ -145,38 +159,116 @@ section.body {
   padding: 3rem;
 }
 
-
-
-
-
-
-
-
 /* Home page body */
-section #welcome-and-logo {
+#welcome-and-logo {
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
 }
-section #welcome {
+#welcome {
   margin: 0 3rem;
   border-bottom: 1px solid black;
 }
-section #welcome p {
+#welcome p {
   margin: 1rem;
   line-height: 3;
 }
-section #logo {
+.background#index #logo{
   width: 15rem;
+  -webkit-animation: spin 7s infinite;
+   animation: spin 7s infinite;
 }
-
-section #certifications {
+@-webkit-keyframes spin{
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(-360deg);
+  }
+}
+@keyframes spin{
+  from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  
+  to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+  }
+}
+#certifications {
   margin: 4.4rem auto 0;
   width: 70%;
   display: flex;
   justify-content: space-around;
 }
+
+
+
+
+
+
+
+
+
+
+/* Catalog */
+#catalog .body {
+  width: 80%;
+}
+
+.subcategory {
+  padding: 1rem 1rem 3rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.534);
+}
+.heading {
+  text-align: center;
+}
+.subheading {
+  color: rgb(90, 90, 90);
+  font-style: italic;
+}
+.subcategory .products-container {
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+.products-container .product {
+  width: 20%;
+  margin: 1rem;
+  border: 1px solid black;
+
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: space-around;
+  flex-direction: column;
+}
+.product .product-title {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.product .product-description {
+  font-size: 0.8rem;
+  color: rgba(58, 57, 57, 0.76);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -237,33 +329,12 @@ section #certifications {
 }
 
 
-.background#index #logo{
-  -webkit-animation: spin 7s infinite;
-   animation: spin 7s infinite;
-}
 
-@-webkit-keyframes spin{
-  from {
-    -webkit-transform: rotateY(0deg);
-  }
-  to {
-    -webkit-transform: rotateY(-360deg);
-  }
-}
 
-@keyframes spin{
-  from {
-    -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-  }
-  
-  to {
-    -moz-transform: rotateY(-360deg);
-    -ms-transform: rotateY(-360deg);
-    transform: rotateY(-360deg);
-  }
-}
+
+
+
+
 
 
 /* Footer */
