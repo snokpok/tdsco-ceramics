@@ -140,12 +140,8 @@ section.body {
 
   position: absolute;
 }
-
-.background#index {
-  min-height: 130%;
-}
 .background#index section {
-  top: 10rem;
+  top: 6rem;
 }
 
 .background#about {
