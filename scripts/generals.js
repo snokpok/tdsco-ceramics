@@ -1,10 +1,47 @@
+// add the icon to every page;
+const icon = document.createElement("link");
+icon.setAttribute("href", "favicon.ico");
+icon.setAttribute("rel", "shortcut icon");
+icon.setAttribute("type", "image/x-icon");
+document.head.appendChild(icon);
+
+// add title according to page;
+const devMode = true;
+let endpoint;
+if (devMode) {
+  endpoint = window.location.pathname
+    .slice("/tdsco-ceramics".length)
+    .replace(".html", "")
+    .replace("/", "");
+} else {
+  endpoint = window.location.pathname
+    .replace(".html", "")
+    .replace("/", "");
+}
+let titlePre =
+  endpoint == "index"
+    ? "Home"
+    : endpoint == "catalog"
+    ? "Catalog"
+    : endpoint == "contact"
+    ? "Contact us"
+    : endpoint == "about"
+    ? "About us"
+    : "error";
+
+const title = document.createElement("title");
+title.innerHTML = `${titlePre} | TDS Company Ltd.`;
+document.head.appendChild(title);
+// utils
+
 function _scrollTo(selector, yOffset = 0) {
   const el = document.querySelector(selector);
   const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
   window.scrollTo({ top: y, behavior: "smooth" });
 }
-function sizeRender(sizesArray, element) {
+
+function renderSizes(sizesArray, element) {
   sizesArray.forEach(([width, height]) => {
     element.innerHTML += `∅ ${width} H ${height}`;
     element.appendChild(document.createElement("br"));

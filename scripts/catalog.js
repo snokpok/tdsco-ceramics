@@ -28,15 +28,16 @@ for (let categoryName of Object.keys(products)) {
         "src",
         `images/catalog/${categoryName}/${subcategoryName}/${i + 1}.PNG`
       );
-      productImage.style.margin = "15px";
       const productTitle = document.createElement("h4");
       productTitle.setAttribute("class", "product-title");
       productTitle.innerHTML = productObject.name;
-      productTitle.style.margin = 0;
 
       const productSize = document.createElement("h5");
       productSize.setAttribute("class", "product-size");
-      productSize.style.color = "gray";
+      
+      if (productObject.sizes) {
+        renderSizes(productObject.sizes, productSize);
+      }
 
       const productDescription = document.createElement("p");
       productDescription.setAttribute("class", "product-description");

@@ -30,17 +30,12 @@ const products = {
       {
         name: "OP16-287",
       },
-      {
-        name: "OP16-287",
-      },
-      {
-        name: "OP16-287",
-      },
     ],
     fiber: [
       {
         name: "Indoor Ceramics 1",
-        sizes: ["Size 1"],
+        sizes: [
+        ],
         description: "Some description as well",
       },
     ],
