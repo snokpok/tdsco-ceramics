@@ -1,10 +1,18 @@
-// dynamically sizing the background to the section body
-const background = document.querySelector(".background")
+function _scrollTo(selector, yOffset = 0) {
+  const el = document.querySelector(selector);
+  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-background.style.minHeight = (sectionBody.offsetHeight+100) + "px";
-console.log(background.style.minHeight)
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
+function sizeRender(sizesArray, element) {
+  sizesArray.forEach(([width, height]) => {
+    element.innerHTML += `∅ ${width} H ${height}`;
+    element.appendChild(document.createElement("br"));
+  });
+}
 
-// add footer
-const footer = document.createElement("footer")
-footer.innerHTML = "© Copyright 2020 - TDSCO Ltd."
-document.body.appendChild(footer);
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
+const sectionBody = document.querySelector("section.body");
