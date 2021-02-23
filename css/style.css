@@ -23,12 +23,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   position: relative;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  
 }
 
 hr {
@@ -47,6 +46,7 @@ header {
 }
 
 header img#banner {
+  animation: fadein 5s ease forwards;
   float: left;
   height: 100%;
   margin-left: 0.5%;
@@ -120,12 +120,13 @@ section.body {
   box-shadow: 0px 15px 40px #0f0f0f;
   background-color: white;
 
+  animation: fadein 1s;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
   overflow: auto;
 }
-
 
 /* Home page body */
 #welcome-and-logo {
@@ -147,30 +148,10 @@ section.body {
 
 #logo {
   width: 15rem;
-  -webkit-animation: spin 7s infinite;
-  animation: spin 7s infinite;
+  -webkit-animation: spin 7s 1;
+  animation: spin 7s 1;
 }
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotateY(0deg);
-  }
-  to {
-    -webkit-transform: rotateY(-360deg);
-  }
-}
-@keyframes spin {
-  from {
-    -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-  }
 
-  to {
-    -moz-transform: rotateY(-360deg);
-    -ms-transform: rotateY(-360deg);
-    transform: rotateY(-360deg);
-  }
-}
 #certifications {
   margin: 4.4rem auto 0;
   width: 70%;
@@ -178,9 +159,25 @@ section.body {
   justify-content: space-around;
 }
 
+#certifications :nth-child(1) {
+  animation: fadein 1s 1s backwards;
+}
+
+#certifications :nth-child(2) {
+  animation: fadein 1s 1.5s backwards;
+}
+
+#certifications :nth-child(3) {
+  animation: fadein 1s 2s backwards;
+}
+
+#certifications :nth-child(4) {
+  animation: fadein 1s 2.5s backwards;
+}
+
 /* Catalog */
 section.body#catalog {
-  width: 80%;
+  width: 92%;
 }
 
 .subcategory {
@@ -201,31 +198,43 @@ section.body#catalog {
 .subcategory .products-container {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
 }
 
 .products-container .product {
   width: 15%;
-  margin: 1rem;
-  border: 1px solid black;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 7px;
 
   display: flex;
-  justify-content: center;
   text-align: center;
-  align-items: space-around;
+  align-items: space-between;
+  justify-content: center;
   flex-direction: column;
+  animation: fadein 3s;
+  transition: transform 0.2s;
+}
+
+.product:hover {
+  transform: scale(1.1);
+  border: 1px solid gray;
+  box-shadow: 0px 0px 7px 8px rgba(33, 33, 33, 0.219);
 }
 
 .product .product-image {
-  margin: 15px;
+  animation: fadein-expand 1s;
 }
 
 .product .product-size {
   color: gray;
+  animation: fadein-expand 1s;
 }
 
 .product .product-title {
   text-decoration: underline;
+  animation: fadein-expand 1s;
   font-weight: bold;
   margin: 0;
 }
@@ -300,6 +309,8 @@ footer {
   width: 100%;
   padding: 0.8rem 0;
 
+  animation: fadein 3s;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -307,4 +318,45 @@ footer {
   position: absolute;
   bottom: 0;
   z-index: 1;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(-360deg);
+  }
+}
+@keyframes spin {
+  from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadein-expand {
+  from {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    width: 100%;
+  }
 }

@@ -1,18 +1,18 @@
-for (let categoryName of Object.keys(products)) {
+for (let categoryName in products) {
   const categoryDiv = document.createElement("div");
   categoryDiv.setAttribute("class", "category");
   categoryDiv.setAttribute("id", categoryName);
   const heading = document.createElement("h1");
   heading.setAttribute("class", "heading");
-  heading.innerHTML = categoryName.capitalize();
+  heading.innerText = categoryName.capitalize();
 
   categoryDiv.appendChild(heading);
-  for (let subcategoryName of Object.keys(products[categoryName])) {
+  for (let subcategoryName in products[categoryName]) {
     const subcategoryDiv = document.createElement("div");
     subcategoryDiv.setAttribute("class", "subcategory");
     const subheading = document.createElement("h3");
     subheading.setAttribute("class", "subheading");
-    subheading.innerHTML = subcategoryName.capitalize();
+    subheading.innerText = subcategoryName.capitalize();
 
     const productsContainerDiv = document.createElement("div");
     productsContainerDiv.setAttribute("class", "products-container");
@@ -26,23 +26,23 @@ for (let categoryName of Object.keys(products)) {
       productImage.setAttribute("class", "product-image");
       productImage.setAttribute(
         "src",
-        `images/catalog/${categoryName}/${subcategoryName}/${i + 1}.PNG`
+        `images/catalog/${categoryName}/${subcategoryName}/${productObject.name}.PNG`
       );
       const productTitle = document.createElement("h4");
       productTitle.setAttribute("class", "product-title");
-      productTitle.innerHTML = productObject.name;
+      productTitle.innerText = productObject.name;
 
       const productSize = document.createElement("h5");
       productSize.setAttribute("class", "product-size");
-      
+
       if (productObject.sizes) {
-        renderSizes(productObject.sizes, productSize);
+        renderSizes(productObject.sizes, productSize, productObject.isSquare);
       }
 
       const productDescription = document.createElement("p");
       productDescription.setAttribute("class", "product-description");
       if (productObject.description) {
-        productDescription.innerHTML = productObject.description;
+        productDescription.innerText = productObject.description;
       }
       productDiv.appendChild(productImage);
       productDiv.appendChild(productTitle);

@@ -41,11 +41,18 @@ function _scrollTo(selector, yOffset = 0) {
   window.scrollTo({ top: y, behavior: "smooth" });
 }
 
-function renderSizes(sizesArray, element) {
-  sizesArray.forEach(([width, height]) => {
-    element.innerHTML += `∅ ${width} H ${height}`;
-    element.appendChild(document.createElement("br"));
-  });
+function renderSizes(sizesArray, element, isSquare) {
+  if (!isSquare) {
+    sizesArray.forEach(([width, height]) => {
+      element.innerHTML += `∅ ${width} x H ${height} cm`;
+      element.appendChild(document.createElement("br"));
+    });
+  } else {
+    sizesArray.forEach(([width, height]) => {
+      element.innerHTML += `${width} x ${width} x H ${height} cm`;
+      element.appendChild(document.createElement("br"));
+    });
+  }
 }
 
 String.prototype.capitalize = function () {
