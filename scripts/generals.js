@@ -14,24 +14,28 @@ if (devMode) {
     .replace(".html", "")
     .replace("/", "");
 } else {
-  endpoint = window.location.pathname
-    .replace(".html", "")
-    .replace("/", "");
+  endpoint = window.location.pathname.replace(".html", "").replace("/", "");
 }
-let titlePre =
-  endpoint == "index"
-    ? "Home"
-    : endpoint == "catalog"
-    ? "Catalog"
-    : endpoint == "contact"
-    ? "Contact us"
-    : endpoint == "about"
-    ? "About us"
-    : "error";
 
+function titleToPre(endpoint) {
+  let titlePre =
+    endpoint == "index" || endpoint == ""
+      ? "Home"
+      : endpoint == "catalog"
+      ? "Catalog"
+      : endpoint == "contact"
+      ? "Contact us"
+      : endpoint == "about"
+      ? "About us"
+      : "error";
+  return titlePre;
+}
+
+let titlePre = titleToPre(endpoint);
 const title = document.createElement("title");
 title.innerHTML = `${titlePre} | TDS Company Ltd.`;
 document.head.appendChild(title);
+
 // utils
 
 function _scrollTo(selector, yOffset = 0) {
