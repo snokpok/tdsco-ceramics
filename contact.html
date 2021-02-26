@@ -4,6 +4,25 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="scripts/generals.js" defer></script>
     <script src="scripts/addFooter.js" defer></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgvzs1DyIAwQUcxWHeeTdQxCsOuGVyuPA&callback=initMap"
+      type="text/javascript"
+    ></script>
+    <script>
+      function initMap() {
+        const location = { lat: 10.958720823276627, lng: 106.91093522647463 };
+        const map = new google.maps.Map(document.getElementById("google-map"), {
+          zoom: 15,
+          center: location,
+        });
+        const marker = new google.maps.Marker({
+          position: location,
+          map: map,
+        });
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -28,27 +47,32 @@
       </nav>
     </header>
     <section class="body">
-      <h1>Contact</h1>
-      <p>
-        <strong>Address</strong>: Area 8, Long Binh Ward, Bien Hoa City, Dong
-        Nai Province, Vietnam <br /><br />
-        <strong>Telephone</strong>: + 84 2513 985132 (6 lines) <br /><br />
-        <strong>Fax</strong>: + 84 2513 984315 <br /><br />
-        <strong>Emails</strong>:<br />
-        <em>
-          <br />
-          <a href="mailto: info@tdsco-ceramic.vn">info@tdsco-ceramic.vn</a>
-          <br />
-          <a href="mailto: sales01@tdsco-ceramic.vn"
-            >sales01@tdsco-ceramic.vn</a
-          >
-        </em>
-      </p>
-      <p>
-        We would like to express our sincere thanks for your precious time. For
-        further information, please directly contact with us through the
-        addresses.
-      </p>
+      <div class="contact-container">
+        <div class="contact-column" id="contact-us">
+          <h1>Contact us</h1>
+          <p>
+            <strong>Address</strong>: Area 8, Long Binh Ward, Bien Hoa City,
+            Dong Nai Province, Vietnam <br /><br />
+            <strong>Telephone</strong>: + 84 2513 985132 (6 lines) <br /><br />
+            <strong>Fax</strong>: + 84 2513 984315 <br /><br />
+            <strong>Emails</strong>:<br />
+            <em>
+              <br />
+              <a href="mailto: info@tdsco-ceramic.vn">info@tdsco-ceramic.vn</a>
+              <br />
+              <a href="mailto: sales01@tdsco-ceramic.vn"
+                >sales01@tdsco-ceramic.vn</a
+              >
+            </em>
+          </p>
+          <p>
+            We would like to express our sincere thanks for your precious time.
+            For further information, please directly contact with us through the
+            addresses.
+          </p>
+        </div>
+        <div class="contact-column" id="google-map"></div>
+      </div>
     </section>
   </body>
 </html>

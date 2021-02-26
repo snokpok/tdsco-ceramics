@@ -300,6 +300,15 @@ section.body#catalog {
   margin: 0 auto;
 }
 
+/* Contact */
+.contact-container {
+  display: flex;
+}
+.contact-column#google-map {
+  width: 50%;
+  box-shadow: 0 0 4px 4px gray;
+}
+
 /* Footer */
 footer {
   color: grey;

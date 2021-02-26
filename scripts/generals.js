@@ -3,18 +3,25 @@ const icon = document.createElement("link");
 icon.setAttribute("href", "favicon.ico");
 icon.setAttribute("rel", "shortcut icon");
 icon.setAttribute("type", "image/x-icon");
-document.head.appendChild(icon);
+document.head.append(icon);
 
 // add title according to page;
-const devMode = true;
+const productionDomains = [
+  "www.tdsco-ceramic.vn",
+  "tdsco-ceramic.vn",
+  "tdsco-ceramic.com",
+];
+const { hostname, pathname } = window.location;
+
+const devMode = !productionDomains.includes(hostname);
 let endpoint;
 if (devMode) {
-  endpoint = window.location.pathname
+  endpoint = pathname
     .slice("/tdsco-ceramics".length)
     .replace(".html", "")
     .replace("/", "");
 } else {
-  endpoint = window.location.pathname.replace(".html", "").replace("/", "");
+  endpoint = pathname.replace(".html", "").replace("/", "");
 }
 
 function titleToPre(endpoint) {
@@ -34,7 +41,7 @@ function titleToPre(endpoint) {
 let titlePre = titleToPre(endpoint);
 const title = document.createElement("title");
 title.innerHTML = `${titlePre} | TDS Company Ltd.`;
-document.head.appendChild(title);
+document.head.append(title);
 
 // utils
 
@@ -49,12 +56,12 @@ function renderSizes(sizesArray, element, isSquare) {
   if (!isSquare) {
     sizesArray.forEach(([width, height]) => {
       element.innerHTML += `&#8709 ${width} x H ${height} cm`;
-      element.appendChild(document.createElement("br"));
+      element.append(document.createElement("br"));
     });
   } else {
     sizesArray.forEach(([width, height]) => {
       element.innerHTML += `${width} x ${width} x H ${height} cm`;
-      element.appendChild(document.createElement("br"));
+      element.append(document.createElement("br"));
     });
   }
 }
