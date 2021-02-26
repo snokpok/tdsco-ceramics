@@ -48,7 +48,7 @@ function _scrollTo(selector, yOffset = 0) {
 function renderSizes(sizesArray, element, isSquare) {
   if (!isSquare) {
     sizesArray.forEach(([width, height]) => {
-      element.innerHTML += `∅ ${width} x H ${height} cm`;
+      element.innerHTML += `&#8709 ${width} x H ${height} cm`;
       element.appendChild(document.createElement("br"));
     });
   } else {
